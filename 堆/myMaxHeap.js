@@ -9,6 +9,29 @@ class MyMaxHeap {
         this.limit = 100;
     }
 
+    heapSort(arr){
+        if(arr === null || arr.length < 2){
+            return;
+        }
+        arr.forEach((ele, index) => {
+            this.heapInert(arr, index);
+        });
+
+        // 如果只是想弄成一个大根对，而不用达到数组有序，可以有优化
+        // for(let i = arr.length - 1; i >= 0; i--){
+        //     this.heapify(arr, i, arr.length);
+        // }
+
+        const heapSize = arr.length;
+        this.swap(arr, 0, --heapSize);
+
+        while(heapSize > 0){
+            this.heapify(arr, 0, heapSize);
+
+            this.swap(arr, 0, --heapSize);
+        }
+    }
+
     push(val) {
         if (MyMaxHeap.heapSize === limit) {
             throw new Error('over the limit');
