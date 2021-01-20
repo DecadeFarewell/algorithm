@@ -46,7 +46,9 @@ class MyMaxHeap {
         this.heapify(this.heap, 0, this.heap); // 调整整个堆结构，因为替换根节点之后不一定还满足大根堆的条件
         return maxVal; // 返回最大值
     }
-
+    
+    // 额外空间复杂度 O(1)
+    // 时间复杂度 O(n * logN)
     heapInert(heap, index) {
         // while循环停止的两个条件
         // 1.不比父节点值大
