@@ -36,7 +36,7 @@ const lowestAncestor = (head, a, b) => {
 const fillParentMap = (head, parentMap) => {
     if (head.left !== null) {
         parentMap.set(head.left, head);
-        fillParentMap(head, left, parentMap)
+        fillParentMap(head.left, parentMap)
     }
 
     if (head.right !== null) {
@@ -51,7 +51,7 @@ const fillParentMap = (head, parentMap) => {
  */
 function Info(ans,findo1, findo2){
     this.ans = ans;
-    this,findo1 = findo1;
+    this.findo1 = findo1;
     this.findO2 = findo2;
 }
 
@@ -63,8 +63,8 @@ function Info(ans,findo1, findo2){
      const leftInfo = lowestAncestor2(head.left);
      const rightINfo = lowestAncestor2(head.right);
 
-     const findO1 = head === o1 || leftInfo.findO1 === o1 || rightINfo.findO1 === o1;
-     const findO2 = head === o2 || rightINfo.findO2 === o2 || rightINfo.findO2 === o2;
+     const findO1 = head === o1 || leftInfo.findO1 || rightINfo.findO1;
+     const findO2 = head === o2 || rightINfo.findO2 || rightINfo.findO2;
 
      let ans = null;
      if(leftInfo.ans !== null){
