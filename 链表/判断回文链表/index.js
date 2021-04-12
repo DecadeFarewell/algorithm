@@ -18,7 +18,7 @@ const isHuiwen = (head) => {
     let fast = head;
     while (fast.next !== null && head.next.next !== null) {
         slow = slow.next;
-        fast = fast.next;
+        fast = fast.next.next;
     }
 
     let right = slow.next;

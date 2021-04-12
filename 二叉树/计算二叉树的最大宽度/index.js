@@ -69,4 +69,6 @@ const computedMaxWidth2 = (head) => {
         } else {
         }
     }
+
+    return max;
 }

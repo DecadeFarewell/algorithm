@@ -16,3 +16,31 @@ const isSum = (arr, i, sum, aim) => {
 
     return flag1 || flag2;
 }
+
+const arr = [1, 3, 4, 5, 6, 7, 8];
+isSum(arr, 0, 0, 10)
+
+const isSum2 = (arr, aim) => {
+    const row = arr.length + 1;
+    const col = arr.reduce((pre, cur) => pre + cur, 0) + 1;
+
+    let dp = new Array(row).fill('');
+    dp = dp.map(item => new Array(col));
+
+    for (let i = 0; i < col; i++) {
+        dp[row][i] = i === aim ? true : false;
+    }
+
+    for (let i = row - 2; i >= 0; i--) {
+        for (let j = 0; j < col; j++) {
+            const offset = arr[i];
+            j = j + offset;
+
+            const left = j + offset > col ? false : dp[i + 1][j + offset];
+            const down = dp[i + 1][j];
+            dp[i][j] = down || left;
+        }
+    }
+
+    return dp[0][0];
+}
