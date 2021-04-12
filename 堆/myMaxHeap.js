@@ -22,7 +22,7 @@ class MyMaxHeap {
         //     this.heapify(arr, i, arr.length);
         // }
 
-        const heapSize = arr.length;
+        let heapSize = arr.length;
         this.swap(arr, 0, --heapSize);
 
         while(heapSize > 0){
@@ -42,7 +42,7 @@ class MyMaxHeap {
 
     pop() {
         const maxVal = this.heap[0]; // 记录最大的值
-        this.swap(this.heap, 0, this, this.heapSize--); // 最末尾的值顶替跟节点值，并且长度减一(因为要取出一个最大的，并且最大的已经记录过了)
+        this.swap(this.heap, 0, this.heapSize--); // 最末尾的值顶替跟节点值，并且长度减一(因为要取出一个最大的，并且最大的已经记录过了)
         this.heapify(this.heap, 0, this.heap); // 调整整个堆结构，因为替换根节点之后不一定还满足大根堆的条件
         return maxVal; // 返回最大值
     }
