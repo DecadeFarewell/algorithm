@@ -53,7 +53,8 @@ class MyMaxHeap {
         // while循环停止的两个条件
         // 1.不比父节点值大
         // 2.index已经来到 0 位置，来到堆的顶部
-        while (heap[index] > heap[~~((index - 1) / 2)]) { // 如果当前位置的值比父亲节点的值要大
+        // let parentIndex = ~~((index - 1) / 2);
+        while (heap[index] > heap[~~((index - 1) / 2)] && index > 0) { // 如果当前位置的值比父亲节点的值要大
             this.swap(heap, index, ~~((index - 1) / 2)); // 将当前位置与父亲节点的位置进行交换
             index = ~~((index - 1) / 2);                 // 从交换后的位置继续向上看
         }
