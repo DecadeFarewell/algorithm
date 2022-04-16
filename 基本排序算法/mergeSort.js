@@ -1,3 +1,4 @@
+// 稳定排序
 const mergeSort = (arr) => {
   if (arr.length < 2) return arr;
   
