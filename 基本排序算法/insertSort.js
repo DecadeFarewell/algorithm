@@ -8,7 +8,7 @@ const insertSort = (arr) => {
       j--;
     }
 
-    arr[j] = curVal;
+    arr[j + 1] = curVal;
   }
 
   return curVal;
