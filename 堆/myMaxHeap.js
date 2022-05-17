@@ -17,11 +17,6 @@ class MyMaxHeap {
             this.heapInert(arr, index);
         });
 
-        // 如果只是想弄成一个大根对，而不用达到数组有序，可以有优化
-        // for(let i = arr.length - 1; i >= 0; i--){
-        //     this.heapify(arr, i, arr.length);
-        // }
-
         let heapSize = arr.length;
         this.swap(arr, 0, --heapSize);
 
@@ -54,7 +49,7 @@ class MyMaxHeap {
         // 1.不比父节点值大
         // 2.index已经来到 0 位置，来到堆的顶部
         // let parentIndex = ~~((index - 1) / 2);
-        while (heap[index] > heap[~~((index - 1) / 2)] && index > 0) { // 如果当前位置的值比父亲节点的值要大
+        while (heap[index] > heap[~~((index - 1) / 2)]) { // 如果当前位置的值比父亲节点的值要大，并且没有到第一个位置，这里index取不到0不会越界
             this.swap(heap, index, ~~((index - 1) / 2)); // 将当前位置与父亲节点的位置进行交换
             index = ~~((index - 1) / 2);                 // 从交换后的位置继续向上看
         }
@@ -87,3 +82,9 @@ class MyMaxHeap {
         heap[index2] = temp;
     }
 }
+
+const heapSort = new MyMaxHeap();
+const arr = [85,24,64,45,17,31,91,56];
+
+heapSort.heapSort(arr);
+console.log('arr: ', arr);
