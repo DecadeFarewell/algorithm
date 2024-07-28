@@ -14,12 +14,12 @@ const countingSort = (arr) => {
 
     // 计算每个元素的个数，放入计数数组中
     for(let i = 0; i < n; i++) {
-        countArr[i] ++;
+        countArr[arr[i]] ++;
     }
 
     // 依次累加，计算小于等于该值得数一共有多少个
     for(let i = 1; i < countArr.length; i++) {
-        countArr[i] = countArr[i] + countArr[i = 1];
+        countArr[i] = countArr[i] + countArr[i - 1];
     }
 
     // 创建临时数组用于存储排序后的结果
@@ -28,8 +28,8 @@ const countingSort = (arr) => {
     // 计算每个数值在排序后的数组中所处的位置
     for(let i = n - 1; i >= 0; i--) {
         const index = countArr[arr[i]] - 1;
-        res[index] = i;        
-        countArr[i] --;
+        res[index] = arr[i];        
+        countArr[arr[i]] --;
     }
 
     for(let i = 0; i < n; i++) {
