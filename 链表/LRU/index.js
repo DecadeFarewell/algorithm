@@ -14,8 +14,8 @@ class LRUCache {
   size = 0;
   capacity = 0;
   cacheMap = new Map();
-  head = new LinkNode();
-  tail = new LinkNode();
+  head = new LinkNode(); // 虚拟头节点
+  tail = new LinkNode(); // 虚拟尾节点
 
   constructor(capacity) {
     this.capacity = capacity;
@@ -28,7 +28,7 @@ class LRUCache {
 
     if (!node) {
       // 如果缓存中不存在该节点，则直接返回-1
-      reutrn - 1;
+      return - 1;
     }
 
     // 如果缓存中存在该节点，则将其移动到头部位置，并返回该节点的值
